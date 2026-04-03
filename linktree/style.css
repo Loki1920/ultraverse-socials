@@ -1,0 +1,155 @@
+/* Ultraverse Social Hub — Linktree Style */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0a0a0f;
+  --card-bg: #13131f;
+  --card-border: rgba(255,255,255,0.08);
+  --text: #e8e8f0;
+  --muted: #888;
+  --radius: 16px;
+  --gap: 20px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  padding: 40px 20px 60px;
+}
+
+/* ── Header ── */
+.header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.header__title {
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #a78bfa, #ec4899, #f59e0b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.header__sub {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+/* ── Grid of brand cards ── */
+.brands-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--gap);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ── Brand card ── */
+.brand-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.brand-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+}
+
+.brand-card__header {
+  padding: 22px 24px 16px;
+  border-bottom: 1px solid var(--card-border);
+}
+.brand-card__emoji { font-size: 2rem; display: block; margin-bottom: 8px; }
+.brand-card__name {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #fff;
+}
+.brand-card__tagline {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.brand-card__desc {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+.brand-card__links {
+  padding: 16px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ── Social link button ── */
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: background 0.15s, border-color 0.15s, transform 0.1s;
+  background: rgba(255,255,255,0.04);
+}
+.social-link:hover {
+  background: rgba(255,255,255,0.09);
+  border-color: rgba(255,255,255,0.2);
+  transform: scale(1.02);
+}
+.social-link--coming-soon {
+  opacity: 0.4;
+  cursor: default;
+  pointer-events: none;
+}
+.social-link__icon { font-size: 1.2rem; flex-shrink: 0; }
+.social-link__label { flex: 1; }
+.social-link__badge {
+  font-size: 0.65rem;
+  padding: 2px 7px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.12);
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Platform accent colours */
+.platform-facebook  { border-left: 3px solid #1877f2; }
+.platform-instagram { border-left: 3px solid #e1306c; }
+.platform-twitter   { border-left: 3px solid #1da1f2; }
+.platform-tiktok    { border-left: 3px solid #ff0050; }
+.platform-discord   { border-left: 3px solid #5865f2; }
+.platform-telegram  { border-left: 3px solid #0088cc; }
+.platform-website   { border-left: 3px solid #10b981; }
+.platform-youtube   { border-left: 3px solid #ff0000; }
+.platform-linkedin  { border-left: 3px solid #0a66c2; }
+
+/* ── Footer ── */
+.footer {
+  text-align: center;
+  margin-top: 60px;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .header__title { font-size: 1.8rem; }
+  .brands-grid { grid-template-columns: 1fr; }
+}
